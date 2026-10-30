@@ -13,6 +13,15 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    version: "v2.24.1",
+    date: "October 30, 2026",
+    title: "Quality Control: scans in the inspection window",
+    kind: "improvement",
+    items: [
+      { kind: "improvement", text: "The QC inspection window now shows the case's scans and files, with 3D preview for STL scans." },
+    ],
+  },
+  {
     version: "v2.24.0",
     date: "October 30, 2026",
     title: "Lab Production Calendar: views, late cases and workload",

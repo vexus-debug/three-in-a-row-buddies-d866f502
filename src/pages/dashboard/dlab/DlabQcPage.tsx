@@ -21,6 +21,7 @@ import { useStaff } from "@/hooks/useStaff";
 import { clientOf, isRush, patientOf } from "@/hooks/useDentalLab";
 import { stageLabel } from "@/config/dentalLab";
 import { QC_POINTS, QC_QUEUE_STAGES, REWORK_TARGETS, failedPoints, isComplete, qcOutcome, suggestRework, type QcAnswers } from "@/lib/labQc";
+import { CaseFiles } from "@/components/dlab/CaseFiles";
 
 const teethOf = (c: LabCaseRow) => ((c as any).teeth as string[] | undefined) ?? [];
 
@@ -151,6 +152,7 @@ function InspectDialog({ c, technician, onClose }: { c: LabCaseRow; technician?:
           <p><span className="text-muted-foreground">Teeth: </span>{teethOf(c).join(", ") || "—"}</p>
           <p><span className="text-muted-foreground">Made by: </span>{technician || "Unassigned"}</p>
         </div>
+        <div className="rounded-md border p-3"><CaseFiles caseId={c.id} /></div>
         <div className="space-y-3">
           {QC_POINTS.map((p, i) => (
             <div key={p.key}>
